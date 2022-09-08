@@ -1,10 +1,36 @@
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+// https://tw.alphacamp.co/blog/line-chatbot-creation-steps
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+const express = require('express')
+const app = express()
+const linebot = require('linebot');
+
+require('dotenv').config();
+
+const bot = linebot({
+    channelId: process.env.CHANNEL_ID,
+    channelSecret: process.env.CHANNEL_SECRET,
+    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+});
+
+const linebotParser = bot.parser();
+bot.on('message', function (event) {
+    console.log(event);
+    switch (event.message.text) {
+      case '測試':
+        event.reply('測試成功')
+        break
+      case '哈囉':
+        event.reply('嗨～')
+        break
+      case '畢業專題':
+        event.reply('別提了TAT')
+        break
+      default:
+        event.reply('輸入「測試」、「哈囉」、「畢業專題」來看看會發生什麼事！')
+    }
+});
+
+app.post('/', linebotParser);
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Express server start')
+});
