@@ -1,3 +1,5 @@
+'use strict';
+
 const line = require('@line/bot-sdk');
 const { join } = require("path");
 const { readFileSync } = require("fs");
@@ -68,6 +70,7 @@ const richMenuObject = () => ({
         },
         "action": {
           "type": "postback",
+          "text": "簡單簡單說明",
           "data": "service_instruction"
         }
       },
