@@ -33,9 +33,8 @@ const richMenuObject = () => ({
           "height": 834
         },
         "action": {
-          "type": "postback",
-          "text": "用有趣的方法來決定要吃什麼吧！",
-          "data": "service_fun"
+          "type": "message",
+          "text": "我想用有趣的方法來決定吃什麼！"
         }
       },
       {
@@ -46,9 +45,8 @@ const richMenuObject = () => ({
           "height": 835
         },
         "action": {
-          "type": "postback",
-          "text": "輸入店名查詢店家資料",
-          "data": "service_search"
+          "type": "message",
+          "text": "我想用店名查詢店家資料"
         }
       },
       {
@@ -59,9 +57,8 @@ const richMenuObject = () => ({
           "height": 834
         },
         "action": {
-          "type": "postback",
-          "text": "用篩選器發現適合的餐廳吧！",
-          "data": "service_select"
+          "type": "message",
+          "text": "我想篩選適合的餐廳"
         }
       },
       {
@@ -72,9 +69,8 @@ const richMenuObject = () => ({
           "height": 845
         },
         "action": {
-          "type": "postback",
-          "text": "簡單簡單說明",
-          "data": "service_instruction"
+          "type": "message",
+          "text": "我想了解怎麼使用"
         }
       },
       {
@@ -85,9 +81,8 @@ const richMenuObject = () => ({
           "height": 847
         },
         "action": {
-          "type": "postback",
-          "text": "找飯友就來這輕鬆聊天～",
-          "data": "service_chat"
+          "type": "message",
+          "text": "我想跟飯友聊天～"
         }
       },
       {
@@ -98,9 +93,8 @@ const richMenuObject = () => ({
           "height": 847
         },
         "action": {
-          "type": "postback",
-          "text": "與我們分享這頓飯如何吧！",
-          "data": "service_note"
+          "type": "message",
+          "text": "我想寫個食記"
         }
       }
     ]
