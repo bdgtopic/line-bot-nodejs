@@ -1,10 +1,8 @@
-// https://tw.alphacamp.co/blog/line-chatbot-creation-steps
-
 const express = require('express')
 const app = express()
 const linebot = require('linebot');
 
-require('dotenv').config();
+require('dotenv').config()
 
 const bot = linebot({
     channelId: process.env.CHANNEL_ID,
@@ -17,7 +15,7 @@ bot.on('message', function (event) {
     console.log(event);
     switch (event.message.text) {
       case '測試':
-        event.reply('測試成功')
+        event.reply('測試time')
         break
       case '哈囉':
         event.reply('嗨～')
