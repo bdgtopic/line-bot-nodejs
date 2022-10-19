@@ -1,5 +1,5 @@
 {
-  "name": "chatbot",
+  "name": "line-chatbot",
   "version": "0.3.0",
   "description": "A sample Node.js app using Express 4",
   "engines": {
@@ -23,11 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/chatbot"
+    "url": "https://github.com/bdgtopic/line-bot-nodejs"
   },
   "keywords": [
     "node",
-    "heroku",
     "express"
   ],
   "license": "MIT"
