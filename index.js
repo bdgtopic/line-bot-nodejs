@@ -15,7 +15,7 @@ bot.on('message', function (event) {
     console.log(event);
     switch (event.message.text) {
       case '測試':
-        event.reply('測試time')
+        event.reply('測試timetimetime')
         break
       case '哈囉':
         event.reply('嗨～')
