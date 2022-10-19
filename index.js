@@ -19,7 +19,7 @@ bot.on('message', function (event) {
         break
 
       // Rich Menu
-      case '我想了解怎麼使用～':
+      case '我想了解怎麼使用':
         event.reply([{
           "type": "template",
           "altText": "this is an image carousel template",
