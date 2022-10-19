@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node richmenu.js",
+    "start": "node index.js",
     "test": "nodemon index.js"
   },
   "dependencies": {

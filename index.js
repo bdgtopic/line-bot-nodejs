@@ -1,34 +1,148 @@
-const express = require('express')
-const app = express()
-const linebot = require('linebot');
+const line = require('@line/bot-sdk');
+const { join } = require("path");
+const { readFileSync } = require("fs");
 
-require('dotenv').config()
+// create LINE SDK config from env variables
+const config = {
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+  channelSecret: process.env.CHANNEL_SECRET,
+};
 
-const bot = linebot({
-    channelId: process.env.CHANNEL_ID,
-    channelSecret: process.env.CHANNEL_SECRET,
-    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
-});
+// create LINE SDK client
+const client = new line.Client(config);
 
-const linebotParser = bot.parser();
-bot.on('message', function (event) {
-    console.log(event);
-    switch (event.message.text) {
-      case '測試':
-        event.reply('測試timeing')
-        break
-      case '哈囉':
-        event.reply('嗨～')
-        break
-      case '畢業專題':
-        event.reply('別提了TAT')
-        break
-      default:
-        event.reply('輸入「測試」、「哈囉」、「畢業專題」來看看會發生什麼事！')
-    }
-});
+const richMenuObject = () => ({
+    "size": {
+      "width": 2500,
+      "height": 1686
+    },
+    "selected": true,
+    "name": "richmenu",
+    "chatBarText": "點擊體驗服務",
+    "areas": [
+      {
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 823,
+          "height": 834
+        },
+        "action": {
+          "type": "postback",
+          "text": "用有趣的方法來決定要吃什麼吧！",
+          "data": "service_fun"
+        }
+      },
+      {
+        "bounds": {
+          "x": 834,
+          "y": 0,
+          "width": 838,
+          "height": 835
+        },
+        "action": {
+          "type": "postback",
+          "text": "輸入店名查詢店家資料",
+          "data": "service_search"
+        }
+      },
+      {
+        "bounds": {
+          "x": 1677,
+          "y": 0,
+          "width": 823,
+          "height": 834
+        },
+        "action": {
+          "type": "postback",
+          "text": "用篩選器發現適合的餐廳吧！",
+          "data": "service_select"
+        }
+      },
+      {
+        "bounds": {
+          "x": 0,
+          "y": 841,
+          "width": 823,
+          "height": 845
+        },
+        "action": {
+            "type": "template",
+            "altText": "this is an image carousel template",
+            "template": {
+              "type": "image_carousel",
+              "columns": [
+                {
+                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png"
+                },
+                {
+                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png"
+                },
+                {
+                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-3.png"
+                },
+                {
+                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-4.png"
+                },
+                {
+                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-5.png"
+                },
+                {
+                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-6.png"
+                }
+              ]
+            }
+          }
+      },
+      {
+        "bounds": {
+          "x": 835,
+          "y": 839,
+          "width": 837,
+          "height": 847
+        },
+        "action": {
+          "type": "postback",
+          "text": "找飯友就來這輕鬆聊天～",
+          "data": "service_chat"
+        }
+      },
+      {
+        "bounds": {
+          "x": 1678,
+          "y": 839,
+          "width": 822,
+          "height": 847
+        },
+        "action": {
+          "type": "postback",
+          "text": "與我們分享這頓飯如何吧！",
+          "data": "service_note"
+        }
+      }
+    ]
+  })
 
-app.post('/', linebotParser);
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Express server start')
-});
+
+const main = async (client) => {
+  // Create rich menu
+  const richMenuId = await client.createRichMenu(
+    richMenuObject()
+  )
+
+  // Upload image to rich menu
+  const filepath = join(__dirname, './public/richmenu.png')
+  const buffer = readFileSync(filepath)
+
+  await client.setRichMenuImage(richMenuId, buffer)
+
+  // Set rich menu A as the default rich menu
+  await client.setDefaultRichMenu(richMenuId)
+
+  // Create rich menu alias
+  await client.createRichMenuAlias(richMenuId, 'richmenu-alias')
+
+  console.log('success')
+}
+
+main(client)
