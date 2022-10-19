@@ -67,32 +67,9 @@ const richMenuObject = () => ({
           "height": 845
         },
         "action": {
-            "type": "template",
-            "altText": "this is an image carousel template",
-            "template": {
-              "type": "image_carousel",
-              "columns": [
-                {
-                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png"
-                },
-                {
-                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png"
-                },
-                {
-                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-3.png"
-                },
-                {
-                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-4.png"
-                },
-                {
-                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-5.png"
-                },
-                {
-                  "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-6.png"
-                }
-              ]
-            }
-          }
+          "type": "postback",
+          "data": "service_instruction"
+        }
       },
       {
         "bounds": {
