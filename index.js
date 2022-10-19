@@ -14,12 +14,12 @@ const linebotParser = bot.parser();
 bot.on('message', function (event) {
     console.log(event);
     switch (event.message.text) {
-      case '嗨':
-        event.reply('Hello World!')
+      case '開發中':
+        event.reply('心好累：）')
         break
 
       // Rich Menu
-      case 'service_instruction':
+      case '我想了解怎麼使用～':
         event.reply([{
           "type": "template",
           "altText": "this is an image carousel template",
@@ -50,7 +50,7 @@ bot.on('message', function (event) {
         break
         
       default:
-        event.reply('輸入「嗨」來看看會發生什麼事')
+        event.reply('輸入「開發中」看看')
     }
 });
 
