@@ -7,14 +7,16 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node richmenu.js",
     "test": "nodemon index.js"
   },
   "dependencies": {
+    "@line/bot-sdk": "^7.5.2",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.5",
     "express": "^4.15.2",
-    "linebot": "^1.6.1"
+    "linebot": "^1.6.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "got": "^11.3.0",
