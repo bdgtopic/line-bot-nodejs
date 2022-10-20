@@ -34,7 +34,7 @@ const richMenuObject = () => ({
         },
         "action": {
           "type": "message",
-          "text": "我想用有趣的方法來決定吃什麼！"
+          "text": "用有趣的方法推薦餐廳給我"
         }
       },
       {
@@ -94,7 +94,7 @@ const richMenuObject = () => ({
         },
         "action": {
           "type": "message",
-          "text": "我想寫個食記"
+          "text": "我想寫個食記！"
         }
       }
     ]
