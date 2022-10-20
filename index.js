@@ -22,18 +22,43 @@ bot.on('message', function (event) {
       case '我想了解怎麼使用':
         event.reply({
           type: 'template',
-          altText: 'this is a confirm template',
+          altText: 'this is a carousel template',
           template: {
-            type: 'confirm',
-            text: 'Are you sure?',
-            actions: [{
-              type: 'message',
-              label: 'Yes',
-              text: 'yes'
+            type: 'carousel',
+            columns: [{
+              thumbnailImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png',
+              title: 'this is menu',
+              text: 'description',
+              actions: [{
+                type: 'postback',
+                label: 'Buy',
+                data: 'action=buy&itemid=111'
+              }, {
+                type: 'postback',
+                label: 'Add to cart',
+                data: 'action=add&itemid=111'
+              }, {
+                type: 'uri',
+                label: 'View detail',
+                uri: 'http://example.com/page/111'
+              }]
             }, {
-              type: 'message',
-              label: 'No',
-              text: 'no'
+              thumbnailImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png',
+              title: 'this is menu',
+              text: 'description',
+              actions: [{
+                type: 'postback',
+                label: 'Buy',
+                data: 'action=buy&itemid=222'
+              }, {
+                type: 'postback',
+                label: 'Add to cart',
+                data: 'action=add&itemid=222'
+              }, {
+                type: 'uri',
+                label: 'View detail',
+                uri: 'http://example.com/page/222'
+              }]
             }]
           }
         })
