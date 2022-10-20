@@ -21,45 +21,30 @@ bot.on('message', function (event) {
       // Rich Menu
       case '我想了解怎麼使用':
         event.reply({
-          type: 'template',
-          altText: 'this is a carousel template',
+          type: "template",
+          altText: "this is an image carousel template",
           template: {
-            type: 'carousel',
-            columns: [{
-              thumbnailImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png',
-              title: 'this is menu',
-              text: 'description',
-              actions: [{
-                type: 'postback',
-                label: 'Buy',
-                data: 'action=buy&itemid=111'
-              }, {
-                type: 'postback',
-                label: 'Add to cart',
-                data: 'action=add&itemid=111'
-              }, {
-                type: 'uri',
-                label: 'View detail',
-                uri: 'http://example.com/page/111'
-              }]
-            }, {
-              thumbnailImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png',
-              title: 'this is menu',
-              text: 'description',
-              actions: [{
-                type: 'postback',
-                label: 'Buy',
-                data: 'action=buy&itemid=222'
-              }, {
-                type: 'postback',
-                label: 'Add to cart',
-                data: 'action=add&itemid=222'
-              }, {
-                type: 'uri',
-                label: 'View detail',
-                uri: 'http://example.com/page/222'
-              }]
-            }]
+            type: "image_carousel",
+            columns: [
+              {
+                imageUrl: "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png"
+              },
+              {
+                imageUrl: "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png"
+              },
+              {
+                imageUrl: "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-3.png"
+              },
+              {
+                imageUrl: "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-4.png"
+              },
+              {
+                imageUrl: "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-5.png"
+              },
+              {
+                imageUrl: "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-6.png"
+              }
+            ]
           }
         })
         break
