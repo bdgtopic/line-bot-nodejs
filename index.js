@@ -20,18 +20,23 @@ bot.on('message', function (event) {
 
       // Rich Menu
       case '我想了解怎麼使用':
-        event.reply([
-          {
-            type: 'image',
-            originalContentUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png',
-            previewImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png'
-          },
-          {
-            type: 'image',
-            originalContentUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png',
-            previewImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png'
+        event.reply({
+          type: 'template',
+          altText: 'this is a carousel template',
+          template: {
+            type: 'carousel',
+            columns: [{
+              type: 'image',
+              originalContentUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png',
+              previewImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png'
+            },
+            {
+              type: 'image',
+              originalContentUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png',
+              previewImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png'
+            }]
           }
-        ])
+        })
         break
         
       default:
