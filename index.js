@@ -21,19 +21,30 @@ bot.on('message', function (event) {
       // Rich Menu
       case '我想了解怎麼使用':
         event.reply({
-          type: 'template',
-          altText: 'this is a carousel template',
-          template: {
-            type: 'carousel',
-            columns: [{
-              thumbnailImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png',
-              title: 'this is menu',
-              text: 'description'
-            }, {
-              thumbnailImageUrl: 'https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png',
-              title: 'this is menu',
-              text: 'description'
-            }]
+          "type": "template",
+          "altText": "this is an image carousel template",
+          "template": {
+            "type": "image_carousel",
+            "columns": [
+              {
+                "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-1.png"
+              },
+              {
+                "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-2.png"
+              },
+              {
+                "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-3.png"
+              },
+              {
+                "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-4.png"
+              },
+              {
+                "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-5.png"
+              },
+              {
+                "imageUrl": "https://raw.githubusercontent.com/bdgtopic/line-bot-nodejs/main/public/instruction-6.png"
+              }
+            ]
           }
         })
         break
