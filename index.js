@@ -20,7 +20,7 @@ bot.on('message', function (event) {
 
       // Rich Menu
       case '我想了解怎麼使用':
-        event.reply([{
+        event.reply({
           type: 'template',
           altText: 'this is a carousel template',
           template: {
@@ -35,7 +35,7 @@ bot.on('message', function (event) {
               text: 'description'
             }]
           }
-        }])
+        })
         break
         
       default:
